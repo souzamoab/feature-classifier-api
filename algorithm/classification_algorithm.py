@@ -59,7 +59,7 @@ cln = []
 abbr_dict = setup_abbr()
 
 for i in range(len(data)):
-    doc = nlp(data['data'][i]['text'])
+    doc = nlp(data['comment'][i]['text'])
     doc_lower = doc.text.lower()
     doc_punctuation = re.sub('[^a-zãàáâéêíõóôúç \n]', ' ', doc_lower)
     doc_corrected = nlp(" ".join([abbr_dict.get(w, w) for w in doc_punctuation.split()])) 
@@ -160,11 +160,11 @@ for i in range(len(cln)):
 
 #Hipótese 2 = 264
 
-func = pd.DataFrame(data=np.array(functionalities), index= range(len(data)), columns= ['funcionality'])
+func = pd.DataFrame(data=np.array(functionalities), index= range(len(data)), columns= ['functionality'])
 hypo = pd.DataFrame(data=np.array(hypotheses), index= range(len(data)), columns= ['hypothesis'])
 df = pd.concat([data, func, hypo], axis=1)
 
 #Converting dataframe to json string
-jsonOut = df.to_json(orient='records')
+jsonOut = df.to_json(orient='table', index=False)
 
 print(json.dumps(jsonOut))
