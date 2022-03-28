@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import nltk
 nltk.download('punkt', quiet=True)
+nltk.download('stopwords')
 import re
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
