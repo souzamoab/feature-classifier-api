@@ -1,5 +1,6 @@
 import spacy
 from spacy.lang.pt.examples import sentences
+import pt_core_news_sm
 import pandas as pd
 import numpy as np
 import nltk
@@ -54,12 +55,12 @@ def remove_stopword(lemmatized_sentence):
 inputJson = sys.argv[1]
 
 data = pd.read_json(inputJson)
-nlp = spacy.load('pt_core_news_sm')
+nlp = pt_core_news_sm.load()
 cln = []
 abbr_dict = setup_abbr()
 
 for i in range(len(data)):
-    doc = nlp(data['comment'][i]['text'])
+    doc = nlp(data['comments'][i]['text'])
     doc_lower = doc.text.lower()
     doc_punctuation = re.sub('[^a-zãàáâéêíõóôúç \n]', ' ', doc_lower)
     doc_corrected = nlp(" ".join([abbr_dict.get(w, w) for w in doc_punctuation.split()])) 
