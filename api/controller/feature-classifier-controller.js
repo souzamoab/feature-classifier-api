@@ -17,5 +17,9 @@ module.exports = () => {
 
     };
 
+    controller.getHealth = function (req, res) {
+        res.status(200).send("feature-classifier UP")
+    };
+
     return controller;
 }
