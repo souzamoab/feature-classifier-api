@@ -1,5 +1,4 @@
 nltk==3.7
 numpy==1.22.3
 pandas==1.4.1
-pt_core_news_sm==3.2.0
 spacy==3.2.3
