@@ -13,7 +13,7 @@ module.exports = () => {
         PythonShell.run('algorithm/classification_algorithm.py', options, function (err, result){
             if (err) throw err;
             res.status(200).send(JSON.parse(result.toString()))
-      });
+        });
 
     };
 

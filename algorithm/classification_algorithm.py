@@ -167,5 +167,3 @@ df = pd.concat([data, func, hypo], axis=1)
 
 #Converting dataframe to json string
 jsonOut = df.to_json(orient='table', index=False)
-
-print(json.dumps(jsonOut))
